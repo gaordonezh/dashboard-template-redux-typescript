@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Autocomplete(theme: ThemeProps) {
+export default function autocomplete(theme: ThemeProps) {
   return {
     MuiAutocomplete: {
       styleOverrides: {

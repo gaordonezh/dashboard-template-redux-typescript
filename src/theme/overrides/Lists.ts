@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Lists(theme: ThemeProps) {
+export default function lists(theme: ThemeProps) {
   return {
     MuiListItemIcon: {
       styleOverrides: {

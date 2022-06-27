@@ -5,8 +5,9 @@ import Loadable from './Loadable';
 const PrivateLayout = Loadable(lazy(() => import('layouts/Private')));
 const PublicLayout = Loadable(lazy(() => import('layouts/Public')));
 // private views
-const Home = Loadable(lazy(() => import('pages/Private/Home')));
+const Dashboard = Loadable(lazy(() => import('pages/Private/Dashboard')));
 const Users = Loadable(lazy(() => import('pages/Private/Users')));
+const Products = Loadable(lazy(() => import('pages/Private/Products')));
 // public views
 const Landing = Loadable(lazy(() => import('pages/Public/Landing')));
 const Login = Loadable(lazy(() => import('pages/Public/Login')));
@@ -18,16 +19,17 @@ const Page404 = Loadable(lazy(() => import('pages/Others/404')));
 export default function Router() {
   return useRoutes([
     {
-      path: '/admin/',
+      path: 'admin',
       element: <PrivateLayout />,
       children: [
-        { path: 'dashboard', element: <Home /> },
+        { path: 'dashboard', element: <Dashboard /> },
         { path: 'users', element: <Users /> },
+        { path: 'products', element: <Products /> },
         { path: '*', element: <Page404 /> },
       ],
     },
     {
-      path: '/',
+      path: '',
       element: <PublicLayout />,
       children: [
         { path: '', element: <Landing /> },

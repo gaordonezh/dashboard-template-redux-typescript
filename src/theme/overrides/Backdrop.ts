@@ -1,7 +1,7 @@
 import { alpha } from '@mui/material/styles';
 import { ThemeProps } from 'interfaces/global';
 
-export default function Backdrop(theme: ThemeProps) {
+export default function backdrop(theme: ThemeProps) {
   const varLow = alpha(theme.palette.grey[900], 0.48);
   const varHigh = alpha(theme.palette.grey[900], 1);
 

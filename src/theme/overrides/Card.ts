@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Card(theme: ThemeProps) {
+export default function card(theme: ThemeProps) {
   return {
     MuiCard: {
       styleOverrides: {

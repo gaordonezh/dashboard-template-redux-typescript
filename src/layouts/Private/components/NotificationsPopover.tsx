@@ -55,7 +55,7 @@ export default function NotificationsPopover() {
           </Tooltip>
         </Box>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        <Divider />
 
         <Scrollbar sx={{ height: { xs: 340, sm: 'auto' } }}>
           <List
@@ -85,7 +85,7 @@ export default function NotificationsPopover() {
           </List>
         </Scrollbar>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        <Divider />
 
         <Box sx={{ p: 1 }}>
           <Button fullWidth disableRipple>

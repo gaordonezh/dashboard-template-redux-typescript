@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Input(theme: ThemeProps) {
+export default function input(theme: ThemeProps) {
   return {
     MuiInputBase: {
       styleOverrides: {

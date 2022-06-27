@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Typography(theme: ThemeProps) {
+export default function typography(theme: ThemeProps) {
   return {
     MuiTypography: {
       styleOverrides: {

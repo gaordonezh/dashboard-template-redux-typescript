@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Button(theme: ThemeProps) {
+export default function button(theme: ThemeProps) {
   return {
     MuiButton: {
       styleOverrides: {

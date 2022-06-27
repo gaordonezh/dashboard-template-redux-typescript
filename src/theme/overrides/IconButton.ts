@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function IconButton(theme: ThemeProps) {
+export default function iconButton(theme: ThemeProps) {
   return {
     MuiIconButton: {
       variants: [

@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Paper(theme: ThemeProps) {
+export default function paper(theme: ThemeProps) {
   return {
     MuiPaper: {
       defaultProps: {

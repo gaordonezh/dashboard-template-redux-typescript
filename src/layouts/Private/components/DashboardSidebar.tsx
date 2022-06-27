@@ -60,29 +60,13 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: { is
   return (
     <RootStyle>
       {!isDesktop && (
-        <Drawer
-          open={isOpenSidebar}
-          onClose={onCloseSidebar}
-          PaperProps={{
-            sx: { width: DRAWER_WIDTH },
-          }}
-        >
+        <Drawer open={isOpenSidebar} onClose={onCloseSidebar} PaperProps={{ sx: { width: DRAWER_WIDTH } }}>
           {renderContent}
         </Drawer>
       )}
 
       {isDesktop && (
-        <Drawer
-          open
-          variant="persistent"
-          PaperProps={{
-            sx: {
-              width: DRAWER_WIDTH,
-              bgcolor: 'background.default',
-              borderRightStyle: 'dashed',
-            },
-          }}
-        >
+        <Drawer open variant="persistent" PaperProps={{ sx: { width: DRAWER_WIDTH, bgcolor: 'background.default' } }}>
           {renderContent}
         </Drawer>
       )}

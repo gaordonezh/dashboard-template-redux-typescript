@@ -1,6 +1,6 @@
 import { ThemeProps } from 'interfaces/global';
 
-export default function Tooltip(theme: ThemeProps) {
+export default function tooltip(theme: ThemeProps) {
   return {
     MuiTooltip: {
       styleOverrides: {

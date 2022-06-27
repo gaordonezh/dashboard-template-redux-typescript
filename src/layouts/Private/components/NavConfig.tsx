@@ -1,32 +1,25 @@
-import { Apps } from '@mui/icons-material';
-
-const getIcon = () => <Apps />;
+import { Apps, Bento, BrokenImage, Group } from '@mui/icons-material';
 
 const navConfig = [
   {
     title: 'dashboard',
     path: '/admin/dashboard',
-    icon: getIcon(),
+    icon: <Apps />,
   },
   {
-    title: 'user',
+    title: 'users',
     path: '/admin/users',
-    icon: getIcon(),
+    icon: <Group />,
   },
   {
     title: 'product',
-    icon: getIcon(),
-    children: [
-      { title: 'product 1', path: '/admin/products' },
-      { title: 'product 2', path: '/admin/products' },
-      { title: 'product 3', path: '/admin/products' },
-      { title: 'product 4', path: '/admin/products' },
-    ],
+    icon: <Bento />,
+    children: [{ title: 'Product list', path: '/admin/products' }],
   },
   {
-    title: 'end',
-    path: '/admin/products',
-    icon: getIcon(),
+    title: '404',
+    path: '/admin/404',
+    icon: <BrokenImage />,
   },
 ];
 
