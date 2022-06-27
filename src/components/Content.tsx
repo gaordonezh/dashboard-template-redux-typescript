@@ -1,13 +1,6 @@
 import { Grid, Typography, FormHelperText, Paper, Box } from '@mui/material';
-import { ReactNode } from 'react';
+import { ContentProps } from 'interfaces/global';
 import Scrollbar from './Scrollbar';
-
-interface ContentProps {
-  title?: string;
-  helper?: string;
-  component?: ReactNode;
-  children: ReactNode;
-}
 
 const Content = ({ title, helper, component, children }: ContentProps) => {
   return (

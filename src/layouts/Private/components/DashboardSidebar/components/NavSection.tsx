@@ -1,58 +1,18 @@
 import { useState } from 'react';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
-import { alpha, useTheme, styled } from '@mui/material/styles';
-import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
+import { Box, List, Collapse, ListItemText } from '@mui/material';
 import { ArrowDropDown, ArrowDropUp } from '@mui/icons-material';
 import Scrollbar from 'components/Scrollbar';
-
-/* const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
-  ...theme.typography.body2,
-  height: 48,
-  position: 'relative',
-  textTransform: 'capitalize',
-  color: theme.palette.text.secondary,
-  borderRadius: theme.shape.borderRadius,
-}));
- */
-const ListItemStyle = styled(ListItemButton)(({ theme }) => ({
-  ...theme.typography.body2,
-  height: 48,
-  position: 'relative',
-  textTransform: 'capitalize',
-  color: theme.palette.text.secondary,
-  borderRadius: theme.shape.borderRadius,
-}));
-
-const ListItemIconStyle = styled(ListItemIcon)({
-  width: 22,
-  height: 22,
-  color: 'inherit',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-interface NavItemProps {
-  item: {
-    title: string;
-    path: string;
-    icon: string;
-    info: string;
-    children: Array<any>;
-  };
-  active: Function;
-}
+import { NavItemProps, NavSectionProps } from 'interfaces/global';
+import { ListItemIconStyle, ListItemStyle } from 'components/styled';
 
 function NavItem({ item, active }: NavItemProps) {
+  const isActiveRoot = active(item.path);
+  const [open, setOpen] = useState(isActiveRoot);
   const navigate = useNavigate();
   const theme = useTheme();
-
-  const isActiveRoot = active(item.path);
-
   const { title, path, icon, info, children } = item;
-
-  const [open, setOpen] = useState(isActiveRoot);
-
   const handleOpen = () => setOpen((prev: boolean) => !prev);
 
   const activeRootStyle = {
@@ -124,7 +84,7 @@ function NavItem({ item, active }: NavItemProps) {
   );
 }
 
-export default function NavSection({ navConfig }: { navConfig: Array<any> }) {
+export default function NavSection({ navConfig }: NavSectionProps) {
   const { pathname } = useLocation();
 
   const match = (path: string) => (path ? !!matchPath({ path, end: false }, pathname) : false);

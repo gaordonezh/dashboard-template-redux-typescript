@@ -1,11 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { forwardRef, ReactNode } from 'react';
 import { Box } from '@mui/material';
-
-interface PageProps {
-  title: string;
-  children: ReactNode;
-}
+import { PageProps } from 'interfaces/global';
 
 const Page = forwardRef(({ children, title }: PageProps, ref) => (
   <Box ref={ref}>

@@ -4,21 +4,12 @@ import { Link, Stack, Checkbox, TextField, IconButton, InputAdornment, FormContr
 import { LoadingButton } from '@mui/lab';
 import {  Visibility, VisibilityOff } from '@mui/icons-material';
 
-
-
 const LoginForm = () => {
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
 
-
-  const handleShowPassword = () => {
-    setShowPassword((show) => !show);
-  };
-
-  const handleSubmit = () => {
-    navigate("/admin/dashboard")
-  }
+  const handleShowPassword = () => setShowPassword((show) => !show)
+  const handleSubmit = () => navigate("/admin/dashboard")
 
   return (
 
@@ -41,13 +32,10 @@ const LoginForm = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={handleShowPassword} edge="end">
-
                   {showPassword ? (
-
                     <Visibility />
                   ) : (
                     <VisibilityOff />
-
                   )}
                 </IconButton>
               </InputAdornment>
