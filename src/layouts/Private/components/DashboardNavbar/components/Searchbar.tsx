@@ -1,24 +1,27 @@
-import { useState } from 'react';
 import { Input, Slide, Button, IconButton, InputAdornment, ClickAwayListener } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import { SearchbarStyle } from 'components/styled';
+import { toggleSearchBar } from 'store/slices/navbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { StateGlobalProps } from 'interfaces/state';
 
 export default function Searchbar() {
-  const [isOpen, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const { search } = useSelector((state: StateGlobalProps) => state.navbar);
 
-  const handleOpen = () => setOpen((prev) => !prev);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => dispatch(toggleSearchBar());
+  const handleClose = () => search.open && dispatch(toggleSearchBar());
 
   return (
     <ClickAwayListener onClickAway={handleClose}>
       <div>
-        {!isOpen && (
+        {!search.open && (
           <IconButton onClick={handleOpen}>
             <Search />
           </IconButton>
         )}
 
-        <Slide direction="down" in={isOpen} mountOnEnter unmountOnExit>
+        <Slide direction="down" in={search.open} mountOnEnter unmountOnExit>
           <SearchbarStyle>
             <Input
               autoFocus

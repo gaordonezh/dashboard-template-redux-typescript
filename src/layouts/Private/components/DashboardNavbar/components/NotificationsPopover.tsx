@@ -1,4 +1,3 @@
-import { useState, useRef } from 'react';
 import {
   Box,
   List,
@@ -17,29 +16,25 @@ import {
 import Scrollbar from 'components/Scrollbar';
 import MenuPopover from 'components/MenuPopover';
 import { Face, Notifications } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { StateGlobalProps } from 'interfaces/state';
+import { closeNotifications, openNotifications } from 'store/slices/navbar';
 
 export default function NotificationsPopover() {
-  const anchorRef = useRef(null);
+  const dispatch = useDispatch();
+  const { notification } = useSelector((state: StateGlobalProps) => state.navbar);
 
-  const [open, setOpen] = useState(null);
-
-  const handleOpen = (event: any) => {
-    setOpen(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setOpen(null);
-  };
-
+  const handleOpen = (event: any) => dispatch(openNotifications(event));
+  const handleClose = () => dispatch(closeNotifications());
   return (
     <>
-      <IconButton ref={anchorRef} color={open ? 'primary' : 'default'} onClick={handleOpen} sx={{ width: 40, height: 40 }}>
+      <IconButton color={notification.open ? 'primary' : 'default'} onClick={handleOpen}>
         <Badge badgeContent={10} color="error">
           <Notifications />
         </Badge>
       </IconButton>
 
-      <MenuPopover open={Boolean(open)} anchorEl={open} onClose={handleClose} sx={{ width: 360, p: 0, mt: 1.5, ml: 0.75 }}>
+      <MenuPopover open={notification.open} anchorEl={notification.ref} onClose={handleClose} sx={{ width: 360, p: 0, mt: 1.5, ml: 0.75 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notifications</Typography>

@@ -1,6 +1,7 @@
 import { Apps, Bento, BrokenImage, Group } from '@mui/icons-material';
+import { NavConfigProps } from 'interfaces/global';
 
-const navConfig = [
+const NavConfig: Array<NavConfigProps> = [
   {
     title: 'dashboard',
     path: '/admin/dashboard',
@@ -23,4 +24,4 @@ const navConfig = [
   },
 ];
 
-export default navConfig;
+export default NavConfig;

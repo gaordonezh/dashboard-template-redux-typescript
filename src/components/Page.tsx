@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import { Box } from '@mui/material';
 import { PageProps } from 'interfaces/global';
 

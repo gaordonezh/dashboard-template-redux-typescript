@@ -9,7 +9,7 @@ export interface ThemeProps {
     secondary: string;
   };
   palette: {
-    grey: any;
+    grey: string;
     action: {
       hover: string;
       focus: string;
@@ -55,28 +55,9 @@ export interface ScrollbarProps {
   sx: object;
 }
 
-export interface DashboardNavbarProps {
-  onOpenSidebar: VoidFunction;
-}
-
 export interface NavItemProps {
-  item: {
-    title: string;
-    path: string;
-    icon: string;
-    info: string;
-    children: Array<any>;
-  };
+  item: NavConfigProps;
   active: Function;
-}
-
-export interface NavSectionProps {
-  navConfig: Array<any>;
-}
-
-export interface DashboardSidebarProps {
-  isOpenSidebar: boolean;
-  onCloseSidebar: VoidFunction;
 }
 
 export interface ThemeProviderProps {
@@ -87,4 +68,11 @@ export interface ResponsiveFontSizesProps {
   sm: number;
   md: number;
   lg: number;
+}
+
+export interface NavConfigProps {
+  title: string;
+  path?: string;
+  icon?: JSX.Element;
+  children?: Array<NavConfigProps>;
 }
