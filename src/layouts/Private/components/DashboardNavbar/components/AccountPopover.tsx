@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton } from '@mui/material';
 import MenuPopover from 'components/MenuPopover';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,12 +6,12 @@ import { StateGlobalProps } from 'interfaces/state';
 import { openAccount, closeAccount } from 'store/slices/navbar';
 import { useNavigate } from 'react-router-dom';
 
-export default function AccountPopover() {
+const AccountPopover = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { account } = useSelector((state: StateGlobalProps) => state.navbar);
 
-  const handleOpen = (event: any) => dispatch(openAccount(event));
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => dispatch(openAccount(event));
   const handleClose = () => dispatch(closeAccount());
 
   const handleLogout = () => {
@@ -52,4 +53,6 @@ export default function AccountPopover() {
       </MenuPopover>
     </>
   );
-}
+};
+
+export default AccountPopover;

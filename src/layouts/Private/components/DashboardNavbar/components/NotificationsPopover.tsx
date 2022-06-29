@@ -19,12 +19,13 @@ import { Face, Notifications } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateGlobalProps } from 'interfaces/state';
 import { closeNotifications, openNotifications } from 'store/slices/navbar';
+import { MouseEvent } from 'react';
 
 export default function NotificationsPopover() {
   const dispatch = useDispatch();
   const { notification } = useSelector((state: StateGlobalProps) => state.navbar);
 
-  const handleOpen = (event: any) => dispatch(openNotifications(event));
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => dispatch(openNotifications(event));
   const handleClose = () => dispatch(closeNotifications());
   return (
     <>
